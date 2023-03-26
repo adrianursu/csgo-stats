@@ -7,11 +7,6 @@ const port = 8080;
 const URL =
   "https://blast-recruiting.s3.eu-central-1.amazonaws.com/NAVIvsVitaGF-Nuke.txt";
 
-// fs.appendFile("NAVIvsVitaGF.txt", "", (err) => {
-//   if (err) throw err;
-//   console.log("Created File!");
-// });
-
 app.get("", (req, res) => {
   const protocol = URL.startsWith("https") ? https : http;
 
