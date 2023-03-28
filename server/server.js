@@ -26,15 +26,28 @@ app.get("", (req, res) => {
               console.log("Created File!");
             });
           }
-          if (data === urlData) {
+          if (
+            data ===
+            urlData.substring(
+              urlData.lastIndexOf('World triggered "Match_Start" on "de_nuke"')
+            )
+          ) {
             console.log("Data is already updated.");
             res.send("Data is already updated.");
           } else {
-            fs.writeFile("NAVIvsVitaGF.txt", urlData, (err) => {
-              if (err) throw err;
-              console.log("File has been created and data was written in it");
-              res.send("File has been created and data was written in it");
-            });
+            fs.writeFile(
+              "NAVIvsVitaGF.txt",
+              urlData.substring(
+                urlData.lastIndexOf(
+                  'World triggered "Match_Start" on "de_nuke"'
+                )
+              ),
+              (err) => {
+                if (err) throw err;
+                console.log("File has been created and data was written in it");
+                res.send("File has been created and data was written in it");
+              }
+            );
           }
         });
       });
