@@ -29,6 +29,19 @@ fs.readFile("NAVIvsVitaGF.txt", "utf-8", (err, data) => {
     );
   };
 
+  const getAssists = (player) => {
+    const regex = new RegExp(`\\b${player}\\b.*assisted killing`, "g");
+    const assistsRegexMatch = [...data.matchAll(regex)];
+    console.log(
+      "Player " +
+        player +
+        " has assisted in killing of " +
+        assistsRegexMatch.length +
+        " opponents"
+    );
+  };
+
   getKills("s1mple");
   getDeaths("s1mple");
+  getAssists("s1mple");
 });
