@@ -58,6 +58,18 @@ app.get("", (req, res) => {
     });
 });
 
+app.get("/getKills", (req, res) => {
+  res.send("Get Request for kills");
+});
+
+app.get("/getAssists", (req, res) => {
+  res.send("Get Request for assists");
+});
+
+app.get("/getDeaths", (req, res) => {
+  res.send("Get Request for deaths");
+});
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
